@@ -1,0 +1,22 @@
+<%= form_for @lesson do |f| %>
+
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <%= f.label :title, class: "col-sm-2 control-label" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, class: "col-sm-2 control-label" %>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :category, class: "col-sm-2 control-label" %>
+    <%= f.text_field :category, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :picture, class: "col-sm-2 control-label" %><br />
+    <%= f.file_field :picture %>
+  </div>
+      <%= f.submit 'Submit Lesson', class: "btn btn-info" %>
+</form>
+<% end %>

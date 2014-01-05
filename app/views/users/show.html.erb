@@ -1,2 +1,18 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>Showing Users</h1>
+
+<table>
+  <tr>
+    <th>User Name</th>
+    <th>Email</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+  </tr>
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= user.username %></td>
+    <td><%= user.email %></td>
+    <td><%= user.firstname %></td>
+    <td><%= user.lastname %></td>
+  </tr>
+  <% end %>
+</table>

@@ -1,0 +1,22 @@
+<h1>Edit Lesson</h1>
+
+<%= render 'form' %>
+
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Created</th>
+        <th>Last Update</th>
+        <th>Asset UID</th>
+        <th>Asset Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @lesson.created_at %></td>
+        <td><%= @lesson.updated_at %></td>
+        <td><%= truncate(@lesson.picture_uid, length: 10) %></td>
+        <td><%= truncate(@lesson.picture_name, length: 10) %></td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,29 @@
+<div><%= link_to 'edit', edit_lesson_path %>
+   <%= link_to 'flip', flip_lesson_path %></div>
+<div class="media">
+  <div class="pull-left" href="#">
+    <% unless @lesson.picture.nil? %>
+    <%= image_tag @lesson.picture.thumb("200x").url, class: "media-object" %>
+  </div>
+  <% end %>
+  <div class="media-body">
+    <h4 class="media-heading"><small><%= @lesson.category %>: </small><%= @lesson.title %></h4>
+    <%= @lesson.description %>
+  </div>
+</div>
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Duration</th>
+        <th>Views</th>
+        <th>Flips</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @lesson.duration %></td>
+        <td><%= @lesson.views %></td>
+        <td><%= @lesson.flips %></td>
+      </tr>
+    </tbody>
+  </table>

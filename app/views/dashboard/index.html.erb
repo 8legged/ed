@@ -1,0 +1,21 @@
+<h1>Dashboard <small>a private page</small></h1>
+<%= link_to 'new', new_lesson_path %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>first</th>
+      <th>last</th>
+      <th>user</th>
+      <th>lesson count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= current_user.firstname %></td>
+      <td><%= current_user.lastname %></td>
+      <td><%= current_user.username %></td>
+      <td>TBD</td>
+    </tr>
+  </tbody>
+</table>

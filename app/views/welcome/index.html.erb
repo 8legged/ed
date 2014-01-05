@@ -1,19 +1,113 @@
-<nav>
-  lessons<br />
-  series<br />
-  sign in/out<br />
-  search<br />
-</nav>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap 101 Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 
-<h1>Welcome</h1>
-<div>
-  Show site description
-</div>
-<div>
-  Show categories
-</div>
-<div>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
 
-</div>
-<div>
-</div>
+  <h1>Create lessons worth sharing around YouTube videos</h1>
+  <table class="table">
+    <thead>
+<!--
+      <tr>
+        <th>Science<br />
+          Fiction<br />
+          Science Fiction<br />
+        </th>
+      </tr>
+    -->
+  </thead>
+  <tbody>
+    <%# Lesson.where("id <= ?", 3).each do |lesson| %>
+    <%# lessons.each do |lesson| %>
+    <tr>
+      <td><%= Lesson.find(20).title %></td>
+      <td><%= Lesson.find(20).title %></td>
+      <td><%= Lesson.find(3).title %></td>
+      <td><%= Lesson.find(5).title %></td>
+      <td><%= Lesson.find(6).title %></td>
+      <td><%= Lesson.find(8).title %></td>
+    </tr>
+    <tr>
+      <%# Can I use '.try' instead of '.nil'? Begin Example: %>
+<!--      =begin
+      # without try
+      unless @number.nil?
+      @number.next
+      end
+
+      # with try
+      @number.try(:next)
+      =end
+      <%# End Example %>
+-->
+      <td>
+        <%= image_tag("http://placehold.it/291x461.jpeg/EEEEEE/C8C8C8") %>
+        <% unless Lesson.find(3).picture.nil? %>
+        <%= image_tag Lesson.find(3).picture.thumb("200x").url %>
+        <% end %>
+      </td>
+      <td>
+        <%= image_tag("http://placehold.it/291x461.jpeg/EEEEEE/C8C8C8") %>
+        <% unless Lesson.find(3).picture.nil? %>
+        <%= image_tag Lesson.find(3).picture.thumb("200x").url %>
+        <% end %>
+      </td>
+      <td>
+        <%= image_tag("http://placehold.it/291x461.jpeg/EEEEEE/C8C8C8") %>
+        <% unless Lesson.find(3).picture.nil? %>
+        <%= image_tag Lesson.find(3).picture.thumb("200x").url %>
+        <% end %>
+      </td>
+      <td>
+        <%= image_tag("http://placehold.it/291x461.jpeg/EEEEEE/C8C8C8") %>
+        <% unless Lesson.find(3).picture.nil? %>
+        <%= image_tag Lesson.find(3).picture.thumb("200x").url %>
+        <% end %>
+      </td>
+      <td>
+        <%= image_tag("http://placehold.it/291x461.jpeg/EEEEEE/C8C8C8") %>
+        <% unless Lesson.find(3).picture.nil? %>
+        <%= image_tag Lesson.find(3).picture.thumb("200x").url %>
+        <% end %>
+      </td>
+      <td>
+        <%= image_tag("http://placehold.it/291x461.jpeg/EEEEEE/C8C8C8") %>
+        <% unless Lesson.find(3).picture.nil? %>
+        <%= image_tag Lesson.find(3).picture.thumb("200x").url %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

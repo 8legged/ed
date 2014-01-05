@@ -1,0 +1,15 @@
+<h1>Please sign in below</h1>
+
+<h2>Sign in here</h2>
+
+<%= form_tag session_path do %>
+  <div>
+    <%= label_tag 'email' %>
+    <%= email_field_tag 'email' %>
+  </div>
+  <div>
+    <%= label_tag 'password' %>
+    <%= password_field_tag 'password' %>
+  </div>
+  <%= submit_tag 'Sign in' %>
+<% end %>

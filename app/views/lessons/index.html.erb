@@ -1,0 +1,26 @@
+<h2>Lessons</h2>
+
+<p>
+  Show available categories
+</p>
+<p>Need sorting by views, e.t.c., as well as filtering by duration, e.t.c.</p>
+ <table class="table">
+  <thead>
+    <tr>
+      <th>action</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @lessons.each do |lesson| %>
+   <tr>
+    <td><%= link_to 'view', lesson %> / <%= link_to 'edit', edit_lesson_path(lesson) %></td>
+    <td><%= lesson.title %></td>
+    <td><%= truncate(lesson.description, length: 100) { link_to "(read more)", lesson } %></td>
+    <td><%= lesson.category %></td>
+  </tr>
+  <% end %>
+</tbody>
+</table>

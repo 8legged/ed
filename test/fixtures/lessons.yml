@@ -1,0 +1,18 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  category: MyString
+  title: MyString
+  description: MyText
+  duration: 1
+  views: 1
+  flips: 1
+
+two:
+  category: MyString
+  title: MyString
+  description: MyText
+  duration: 1
+  views: 1
+  flips: 1
