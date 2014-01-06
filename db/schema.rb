@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140106013604) do
+ActiveRecord::Schema.define(version: 20140106061734) do
 
   create_table "lessons", force: true do |t|
     t.string   "category"
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(version: 20140106013604) do
     t.string   "picture_name"
     t.integer  "user_id"
   end
+
+  add_index "lessons", ["created_at"], name: "index_lessons_on_created_at"
+  add_index "lessons", ["user_id"], name: "index_lessons_on_user_id"
 
   create_table "users", force: true do |t|
     t.datetime "created_at"

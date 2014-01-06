@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+  def index
+    @user = User.order("username")
+  end
+
   def new
     @user = User.new
   end
@@ -16,7 +21,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @users = User.all
+    @user = User.find(params[:id])
+    @lessons = @user.lessons
   end
 
   private

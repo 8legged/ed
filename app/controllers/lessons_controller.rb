@@ -1,7 +1,9 @@
 class LessonsController < ApplicationController
+  # before_action :signed_in_user, only: [:create, :destroy]
+  # before_action :correct_user,   only: :destroy
 
   def index
-    @lessons = Lesson.order("created_at desc")
+    @lesson = Lesson.order("created_at desc")
   end
 
   def new
@@ -14,7 +16,7 @@ class LessonsController < ApplicationController
 
     if @lesson.save
       flash[:notice] = "Lesson flipped!"
-      redirect_to dashboard_path
+      redirect_to lessons_path
     else
       flash[:notice] = "Unable to flip, want to make a new lesson?"
       render 'new'
@@ -35,16 +37,26 @@ class LessonsController < ApplicationController
 #    end
 #  end
 
-  def create
-    @lesson = Lesson.new lesson_params
-
-    if @lesson.save
-      flash[:notice] = "Thanks for the lesson!"
-      redirect_to lessons_path
-    else
-      render 'new'
-    end
+def create
+  @lesson = current_user.lessons.build(lesson_params)
+  if @lesson.save
+    flash[:success] = "Thanks for adding a lesson!"
+    redirect_to lessons_path
+  else
+    render 'new'
   end
+end
+
+  # def create
+  #   @lesson = Lesson.new lesson_params
+
+  #   if @lesson.save
+  #     flash[:notice] = "Thanks for the lesson!"
+  #     redirect_to lessons_path
+  #   else
+  #     render 'new'
+  #   end
+  # end
 
   def show
     @lesson = Lesson.find(params[:id])
@@ -64,6 +76,11 @@ class LessonsController < ApplicationController
     end
   end
 
+  def destroy
+    @lesson = Lesson.find(params[:id]).destroy
+    redirect_to lessons_path
+  end
+
 #  def upload
 #    uploaded_io = params[:lesson][:picture]
 #    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
@@ -71,9 +88,12 @@ class LessonsController < ApplicationController
 #    end
 #  end
 
-private
+  private
 
-def lesson_params
-  params.require(:lesson).permit(:title, :picture, :description, :category)
+  def lesson_params
+    params.require(:lesson).permit(:title, :picture, :description, :category)
+  end
 end
-end
+
+
+
