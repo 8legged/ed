@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131220045621) do
+ActiveRecord::Schema.define(version: 20140106013604) do
 
   create_table "lessons", force: true do |t|
     t.string   "category"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20131220045621) do
     t.datetime "updated_at"
     t.string   "picture_uid"
     t.string   "picture_name"
+    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|
