@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new user_params
 
     if @user.save
-      flash[:notice]= "Thanks for creating an account"
+      flash[:notice]= "Account created!"
       session[:user_id] = @user.id
       redirect_to dashboard_url
     else

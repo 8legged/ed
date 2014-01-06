@@ -7,7 +7,7 @@
   </div>
   <% end %>
   <div class="media-body">
-    <h4 class="media-heading"><small><%= @lesson.category %>: </small><%= @lesson.title %></h4>
+    <h4 class="media-heading"><small><%= @lesson.category %>: </small><%= @lesson.title %> <small>created by <%= @lesson.user.username %></small></h4>
     <%= @lesson.description %>
   </div>
 </div>
@@ -21,9 +21,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><%= @lesson.duration %></td>
-        <td><%= @lesson.views %></td>
-        <td><%= @lesson.flips %></td>
+        <td><%= @lesson.duration %>TBD</td>
+        <td><%= @lesson.views %>TBD</td>
+        <td><%= @lesson.flips %>TBD</td>
       </tr>
     </tbody>
   </table>

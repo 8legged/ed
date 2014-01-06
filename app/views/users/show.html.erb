@@ -16,8 +16,8 @@
       <td><%= lesson.title %></td>
       <td><%= truncate(lesson.description, length: 100) { link_to "(read more)", lesson } %></td>
       <td>
-        <%= link_to 'edit', edit_lesson_path %> |
-        <%= link_to 'flip', flip_lesson_path %> |
+        <%= link_to 'edit', edit_lesson_path(lesson) %> |
+        <%= link_to 'flip', flip_lesson_path(lesson) %> |
         <%= link_to 'delete', lesson, method: :delete,
                                       data: { confirm: "You sure?" } %>
       </td>
