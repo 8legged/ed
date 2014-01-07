@@ -60,6 +60,8 @@ end
 
   def show
     @lesson = Lesson.find(params[:id])
+#    @lessons = @lesson.user
+    @user = @lesson.user
   end
 
   def edit

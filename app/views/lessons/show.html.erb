@@ -7,7 +7,7 @@
   </div>
   <% end %>
   <div class="media-body">
-    <h4 class="media-heading"><small><%= @lesson.category %>: </small><%= @lesson.title %> <small>created by <%= @lesson.user.username %></small></h4>
+    <h4 class="media-heading"><small><%= @lesson.category %>: </small><%= @lesson.title %> <small>created by <%#= @lesson.user.username %></small></h4>
     <%= @lesson.description %>
   </div>
 </div>
@@ -15,6 +15,7 @@
     <thead>
       <tr>
         <th>Duration</th>
+        <th>User</th>
         <th>Views</th>
         <th>Flips</th>
       </tr>
@@ -22,6 +23,7 @@
     <tbody>
       <tr>
         <td><%= @lesson.duration %>TBD</td>
+        <td><%= link_to 'user', user_path(@user) %></td>
         <td><%= @lesson.views %>TBD</td>
         <td><%= @lesson.flips %>TBD</td>
       </tr>
