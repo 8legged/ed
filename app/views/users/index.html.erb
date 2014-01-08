@@ -4,6 +4,7 @@
     <th>Email</th>
     <th>First Name</th>
     <th>Last Name</th>
+    <th>Action</th>
   </tr>
   <% @user.each do |user| %>
   <tr>
@@ -11,6 +12,6 @@
     <td><%= user.email %></td>
     <td><%= user.firstname %></td>
     <td><%= user.lastname %></td>
-  </tr>
+    <td><%= link_to 'view profile', user %></td>  </tr>
   <% end %>
 </table>

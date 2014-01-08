@@ -41,7 +41,7 @@ def create
   @lesson = current_user.lessons.build(lesson_params)
   if @lesson.save
     flash[:success] = "Thanks for adding a lesson!"
-    redirect_to lessons_path
+    redirect_to current_user
   else
     render 'new'
   end
@@ -72,6 +72,7 @@ end
     @lesson = Lesson.find(params[:id])
 
     if @lesson.update(lesson_params)
+#      redirect_to current_user
       redirect_to lessons_path
     else
       render 'edit'
@@ -80,7 +81,7 @@ end
 
   def destroy
     @lesson = Lesson.find(params[:id]).destroy
-    redirect_to lessons_path
+    redirect_to current_user
   end
 
 #  def upload
