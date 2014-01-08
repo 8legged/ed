@@ -1,5 +1,7 @@
-<div><%= link_to 'edit', edit_lesson_path %>
-   <%= link_to 'flip', flip_lesson_path %></div>
+<h3 class="text-right"><small>Lessons by <%= @user.username %> (<%= link_to @user.lessons.count, user_path(@user) %>)</small></h3>
+<div class="text-right"><%= link_to 'edit', edit_lesson_path %>
+   <%= link_to 'flip', flip_lesson_path %>
+</div>
 <div class="media">
   <div class="pull-left" href="#">
     <% unless @lesson.picture.nil? %>
@@ -7,7 +9,9 @@
   </div>
   <% end %>
   <div class="media-body">
-    <h4 class="media-heading"><small><%= @lesson.category %>: </small><%= @lesson.title %> <small>created by <%#= @lesson.user.username %></small></h4>
+    <h4 class="media-heading">
+      <small><%= @lesson.category %>: </small><%= @lesson.title %>
+    </h4>
     <%= @lesson.description %>
   </div>
 </div>
