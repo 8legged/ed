@@ -1,6 +1,4 @@
-<% if @user.lessons.any? %>
 <h4><%= @user.username %> <small>(<%= @user.lessons.count %>)</small></h4>
-<% end %>
 <table class="table">
   <thead>
     <h3></h3>
@@ -19,7 +17,7 @@
         <%= link_to 'edit', edit_lesson_path(lesson) %> |
         <%= link_to 'flip', flip_lesson_path(lesson) %> |
         <%= link_to 'delete', lesson, method: :delete,
-                                      data: { confirm: "You sure?" } %>
+        data: { confirm: "You sure?" } %>
       </td>
     </tr>
     <% end %>
