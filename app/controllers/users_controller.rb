@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @lessons = @user.lessons.where("id >= 0").order("created_at DESC")
+    @lessons = @user.lessons.order("created_at DESC")
   end
 
   private

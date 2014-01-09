@@ -1,7 +1,7 @@
-<h3 class="text-right"><small>Lessons by <%= @user.username %> (<%= link_to @user.lessons.count, user_path(@user) %>)</small></h3>
-<div class="text-right"><%= link_to 'edit', edit_lesson_path %>
-   <%= link_to 'flip', flip_lesson_path %>
-</div>
+<% provide(:title, @user.username) %>
+Lessons by <%= @user.username %>
+<a href="<%= user_path(@user) %>"><span class="badge"><%= @user.lessons.count %></span></a>
+
 <div class="media">
   <div class="pull-left" href="#">
     <% unless @lesson.picture.nil? %>
@@ -9,27 +9,27 @@
   </div>
   <% end %>
   <div class="media-body">
-    <h4 class="media-heading">
-      <small><%= @lesson.category %></small><%= @lesson.title %>
-    </h4>
+    <h4 class="media-heading"><small><%= @lesson.category %></small></h4>
+    <h4 class="media-heading"><%= @lesson.title %></h4>
     <%= @lesson.description %>
   </div>
 </div>
-  <table class="table table-condensed">
-    <thead>
-      <tr>
-        <th>Duration</th>
-        <th>User</th>
-        <th>Views</th>
-        <th>Flips</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= @lesson.duration %>TBD</td>
-        <td><%= link_to 'user', user_path(@user) %></td>
-        <td><%= @lesson.views %>TBD</td>
-        <td><%= @lesson.flips %>TBD</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="text-right">
+  <a class="btn btn-danger" href="<%= flip_lesson_path %>" role="button">Flip This Lesson</a>
+</div>
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Duration</th>
+      <th>Views</th>
+      <th>Flips</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @lesson.duration %>TBD</td>
+      <td><%= @lesson.views %>TBD</td>
+      <td><%= @lesson.flips %>TBD</td>
+    </tr>
+  </tbody>
+</table>

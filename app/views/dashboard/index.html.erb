@@ -1,21 +1,38 @@
-<h1>Dashboard <small>a private page</small></h1>
-<%= link_to 'new', new_lesson_path %>
+<% provide(:title, 'Dashboard') %>
+Lessons by <%= current_user.firstname %> <span class="badge"><%= current_user.lessons.count %></span>
+<p class="text-right"><%= link_to '+ new lesson', new_lesson_path %></p>
 
 <table class="table">
   <thead>
+    <h3></h3>
     <tr>
-      <th>first</th>
-      <th>last</th>
-      <th>user</th>
-      <th>lesson count</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><%= current_user.firstname %></td>
-      <td><%= current_user.lastname %></td>
-      <td><%= current_user.username %></td>
-      <td>TBD</td>
+      <% current_user.lessons.each do |lesson| %>
+      <td><%= lesson.title %></td>
+      <td><%= truncate(lesson.description, length: 100) { link_to "(read more)", lesson } %></td>
+      <td>
+        <p>
+          <%= button_to "Flip", flip_lesson_path(lesson), action: "flip", method: :get, type: "button", class: "btn btn-danger btn-xs btn-block" %>
+        </p>
+        <p>
+          <%= button_to "Edit", edit_lesson_path(lesson), action: "edit", method: :get, type: "button", class: "btn btn-default btn-xs btn-block" %>
+        </p>
+        <p>
+          <%= button_to "Delete", lesson, action: "delete", method: :delete, data: { confirm: "Are you sure?" }, type: "button", class: "pull-left btn btn-link btn-xs btn-block" %>
+        </p>
+      </td>
     </tr>
+    <% end %>
   </tbody>
 </table>
+<!--
+<a class="btn btn-danger btn-lg" href="<%#= flip_lesson_path(lesson) %>" role="button">Flip This Lesson</a>
+<%#= link_to 'delete', lesson, method: :delete, data: { confirm: "You sure?" } %>
+-->
+

@@ -1,24 +1,20 @@
-<h4><%= @user.username %> <small>(<%= @user.lessons.count %>)</small></h4>
+<% provide(:title, @user.username) %>
+Lessons by <%= @user.username %> <span class="badge"><%= @user.lessons.count %></span>
+
 <table class="table">
   <thead>
     <h3></h3>
     <tr>
       <th>Title</th>
       <th>Description</th>
-      <th>Action</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <% @lessons.each do |lesson| %>
       <td><%= lesson.title %></td>
-      <td><%= truncate(lesson.description, length: 100) { link_to "(read more)", lesson } %></td>
-      <td>
-        <%= link_to 'edit', edit_lesson_path(lesson) %> |
-        <%= link_to 'flip', flip_lesson_path(lesson) %> |
-        <%= link_to 'delete', lesson, method: :delete,
-        data: { confirm: "You sure?" } %>
-      </td>
+      <td><%= truncate(lesson.description, length: 100) { link_to "(read more)", lesson } %><br />
+        <a class="btn btn-danger btn-xs pull-right" href="<%= flip_lesson_path(lesson) %>" role="button">Flip This Lesson</a></td>
     </tr>
     <% end %>
   </tbody>

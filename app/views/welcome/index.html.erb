@@ -1,67 +1,68 @@
-  <h3 class="lead text-center">Create lessons worth sharing</h3>
-  <table class="table">
-    <thead>
-    </thead>
-    <tbody>
-      <%# Lesson.where("id <= ?", 3).each do |lesson| %>
-      <%# lessons.each do |lesson| %>
-      <tr>
-        <td><%= Lesson.find(20).title %></td>
-        <td><%= Lesson.find(20).title %></td>
-        <td><%= Lesson.find(3).title %></td>
-        <td><%= Lesson.find(5).title %></td>
-        <td><%= Lesson.find(6).title %></td>
-        <td><%= Lesson.find(8).title %></td>
-      </tr>
-      <tr>
-        <%# Can I use '.try' instead of '.nil'? Begin Example: %>
+<% provide(:title, 'Home') %>
+<h3 class="lead text-center">Create lessons worth sharing</h3>
+<table class="table">
+  <thead>
+  </thead>
+  <tbody>
+    <%# Lesson.where("id <= ?", 3).each do |lesson| %>
+    <%# lessons.each do |lesson| %>
+    <tr>
+      <td><%= Lesson.find(20).title %></td>
+      <td><%= Lesson.find(20).title %></td>
+      <td><%= Lesson.find(3).title %></td>
+      <td><%= Lesson.find(5).title %></td>
+      <td><%= Lesson.find(6).title %></td>
+      <td><%= Lesson.find(8).title %></td>
+    </tr>
+    <tr>
+      <%# Can I use '.try' instead of '.nil'? Begin Example: %>
 <!--      =begin
-      # without try
-      unless @number.nil?
-      @number.next
-      end
+# without try
+unless @number.nil?
+@number.next
+end
 
-      # with try
-      @number.try(:next)
-      =end
-      <%# End Example %>
-    -->
-    <td>
-      <%= image_tag("http://placehold.it/291x461.jpeg/EEEEEE/C8C8C8") %>
-      <% unless Lesson.find(3).picture.nil? %>
-      <%= image_tag Lesson.find(3).picture.thumb("200x").url %>
-      <% end %>
-    </td>
-    <td>
-      <%= image_tag("http://placehold.it/291x461.jpeg/EEEEEE/C8C8C8") %>
-      <% unless Lesson.find(3).picture.nil? %>
-      <%= image_tag Lesson.find(3).picture.thumb("200x").url %>
-      <% end %>
-    </td>
-    <td>
-      <%= image_tag("http://placehold.it/291x461.jpeg/EEEEEE/C8C8C8") %>
-      <% unless Lesson.find(3).picture.nil? %>
-      <%= image_tag Lesson.find(3).picture.thumb("200x").url %>
-      <% end %>
-    </td>
-    <td>
-      <%= image_tag("http://placehold.it/291x461.jpeg/EEEEEE/C8C8C8") %>
-      <% unless Lesson.find(3).picture.nil? %>
-      <%= image_tag Lesson.find(3).picture.thumb("200x").url %>
-      <% end %>
-    </td>
-    <td>
-      <%= image_tag("http://placehold.it/291x461.jpeg/EEEEEE/C8C8C8") %>
-      <% unless Lesson.find(3).picture.nil? %>
-      <%= image_tag Lesson.find(3).picture.thumb("200x").url %>
-      <% end %>
-    </td>
-    <td>
-      <%= image_tag("http://placehold.it/291x461.jpeg/EEEEEE/C8C8C8") %>
-      <% unless Lesson.find(3).picture.nil? %>
-      <%= image_tag Lesson.find(3).picture.thumb("200x").url %>
-      <% end %>
-    </td>
-  </tr>
+# with try
+@number.try(:next)
+=end
+<%# End Example %>
+-->
+<td>
+  <%= image_tag("http://placehold.it/291x461.jpeg/EEEEEE/C8C8C8") %>
+  <% unless Lesson.find(3).picture.nil? %>
+  <%= image_tag Lesson.find(3).picture.thumb("200x").url %>
+  <% end %>
+</td>
+<td>
+  <%= image_tag("http://placehold.it/291x461.jpeg/EEEEEE/C8C8C8") %>
+  <% unless Lesson.find(3).picture.nil? %>
+  <%= image_tag Lesson.find(3).picture.thumb("200x").url %>
+  <% end %>
+</td>
+<td>
+  <%= image_tag("http://placehold.it/291x461.jpeg/EEEEEE/C8C8C8") %>
+  <% unless Lesson.find(3).picture.nil? %>
+  <%= image_tag Lesson.find(3).picture.thumb("200x").url %>
+  <% end %>
+</td>
+<td>
+  <%= image_tag("http://placehold.it/291x461.jpeg/EEEEEE/C8C8C8") %>
+  <% unless Lesson.find(3).picture.nil? %>
+  <%= image_tag Lesson.find(3).picture.thumb("200x").url %>
+  <% end %>
+</td>
+<td>
+  <%= image_tag("http://placehold.it/291x461.jpeg/EEEEEE/C8C8C8") %>
+  <% unless Lesson.find(3).picture.nil? %>
+  <%= image_tag Lesson.find(3).picture.thumb("200x").url %>
+  <% end %>
+</td>
+<td>
+  <%= image_tag("http://placehold.it/291x461.jpeg/EEEEEE/C8C8C8") %>
+  <% unless Lesson.find(3).picture.nil? %>
+  <%= image_tag Lesson.find(3).picture.thumb("200x").url %>
+  <% end %>
+</td>
+</tr>
 </tbody>
 </table>

@@ -3,7 +3,7 @@ class LessonsController < ApplicationController
   # before_action :correct_user,   only: :destroy
 
   def index
-    @lesson = Lesson.order("created_at desc")
+    @lesson = Lesson.order("updated_at DESC")
   end
 
   def new
@@ -16,7 +16,7 @@ class LessonsController < ApplicationController
 
     if @lesson.save
       flash[:notice] = "Lesson flipped!"
-      redirect_to lessons_path
+      redirect_to dashboard_path
     else
       flash[:notice] = "Unable to flip, want to make a new lesson?"
       render 'new'
@@ -41,7 +41,7 @@ def create
   @lesson = current_user.lessons.build(lesson_params)
   if @lesson.save
     flash[:success] = "Thanks for adding a lesson!"
-    redirect_to current_user
+    redirect_to dashboard_path
   else
     render 'new'
   end
@@ -73,7 +73,7 @@ end
 
     if @lesson.update(lesson_params)
 #      redirect_to current_user
-      redirect_to lessons_path
+      redirect_to dashboard_path
     else
       render 'edit'
     end

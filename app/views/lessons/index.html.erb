@@ -1,9 +1,10 @@
-<h2>Lessons</h2>
+<% provide(:title, 'Lessons') %>
+<h4>Lessons</h4>
 
 <p>
-  Show available categories
+  Show available categories<br />
+  Need sorting by views, e.t.c., as well as filtering by duration, e.t.c.
 </p>
-<p>Need sorting by views, e.t.c., as well as filtering by duration, e.t.c.</p>
  <table class="table">
   <thead>
     <tr>
@@ -16,7 +17,7 @@
   <tbody>
    <% @lesson.each do |lesson| %>
    <tr>
-    <td><%= link_to 'view', lesson %> / <%= link_to 'edit', edit_lesson_path(lesson) %></td>
+    <td><%= link_to 'view', lesson , class: "btn btn-default" %></td>
     <td><%= lesson.title %></td>
     <td><%= truncate(lesson.description, length: 100) { link_to "(read more)", lesson } %></td>
     <td><%= lesson.category %></td>
