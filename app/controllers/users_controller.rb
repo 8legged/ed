@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    @user = User.order("username")
+    @users = User.order("username")
   end
 
   def new
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @lessons = @user.lessons
+    @lessons = @user.lessons.where("id >= 0").order("created_at DESC")
   end
 
   private

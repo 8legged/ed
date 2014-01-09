@@ -81,7 +81,7 @@ end
 
   def destroy
     @lesson = Lesson.find(params[:id]).destroy
-    redirect_to current_user
+    redirect_to dashboard_path
   end
 
 #  def upload
